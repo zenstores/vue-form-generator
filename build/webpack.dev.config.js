@@ -35,7 +35,14 @@ let rules = [
 		test: /\.(ttf|eot)$/,
 		loader: "url-loader",
 		include: [path.resolve("src"), path.resolve("dev")]
-	}
+  },
+  {
+    test: /\/node_modules\/lodash\/lodash\.js$/,
+    use: 'imports-loader?define=>false',
+    parser: {
+      amd: false,
+    }
+  },
 ];
 
 module.exports = {

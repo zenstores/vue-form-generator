@@ -47,7 +47,14 @@ let rules = [
 		test: /\.(ttf|eot)$/,
 		loader: "url-loader",
 		include: [path.resolve("src")]
-	}
+  },
+  {
+    test: /\/node_modules\/lodash\/lodash\.js$/,
+    use: 'imports-loader?define=>false',
+    parser: {
+      amd: false,
+    }
+  },
 ];
 
 let cssFileName;
